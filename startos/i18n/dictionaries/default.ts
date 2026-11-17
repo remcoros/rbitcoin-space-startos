@@ -1,0 +1,48 @@
+export const DEFAULT_LANG = 'en_US'
+
+const dict = {
+  'Provides blocks, transactions, addresses, and the live mempool.': 0,
+  'rbitcoin connection': 1,
+  'Enable RPC, Electrum, and Esplora in rbitcoin and generate its RPC credentials': 2,
+  'Generate RPC credentials in rbitcoin': 3,
+  'Web interface': 4,
+  'The explorer is listening': 5,
+  'The explorer is not listening': 6,
+  'RPC and Electrum are ready': 7,
+  Explorer: 10,
+  'Mainnet block explorer and Esplora-compatible API. No authentication.': 11,
+  'Explorer settings': 12,
+  'Configure the Lightning explorer and read-only MCP server.': 13,
+  'Saving restarts the explorer. Lightning connects directly to public peers and uses additional memory.': 14,
+  'Lightning explorer': 15,
+  'Settings saved': 16,
+  'Read-only MCP server': 17,
+  'Allows AI clients to query this explorer at /mcp without authentication. It cannot broadcast transactions.': 18,
+  'Enable RPC, Electrum, and Esplora for the explorer': 19,
+  'Enable the address-history index for explorer address pages': 20,
+  'Waiting for the first rbitcoin RPC check': 21,
+  'rbitcoin rejected the RPC cookie; check its credentials': 22,
+  'rbitcoin must use mainnet': 23,
+  'rbitcoin RPC is unreachable; check the node API health': 24,
+  'Electrum is disconnected; check the node API health': 25,
+  'The explorer readiness response is unavailable or invalid': 26,
+  'Explorer storage is ready': 27,
+  'Waiting for the node chain verification before storing history': 28,
+  'The explorer database could not open; check the logs and available disk space': 29,
+  'The explorer database cannot write; check available disk space and the logs': 30,
+  'The explorer database belongs to a different chain; restore a matching backup': 31,
+  'Explorer storage is disabled; check the service logs': 32,
+  'The address-history index is enabled': 33,
+  'Enable the address-history index in rbitcoin to use address pages': 34,
+  'Waiting for the rbitcoin address-index check': 35,
+  'Esplora did not return a valid block height; check the node API health': 36,
+  'Esplora is serving block data': 37,
+  'Esplora is unreachable; check the node API health': 38,
+  'Esplora API': 39,
+  'Explorer storage': 40,
+  'Address-history index': 41,
+} as const
+
+export type I18nKey = keyof typeof dict
+export type LangDict = Record<(typeof dict)[I18nKey], string>
+export default dict

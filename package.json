@@ -1,0 +1,10 @@
+{
+  "name": "rbitcoin-space-startos",
+  "dependencies": {
+    "@start9labs/start-sdk": "4.1.0",
+    "rbitcoin-startos": "github:remcoros/rbitcoin-startos#main"
+  },
+  "overrides": {
+    "@start9labs/start-sdk": "$@start9labs/start-sdk"
+  }
+}
