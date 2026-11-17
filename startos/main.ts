@@ -1,6 +1,7 @@
 import { FileHelper, T } from '@start9labs/start-sdk'
 import * as fs from 'node:fs/promises'
 import { sdk } from './sdk'
+import { arkUrl } from './utils'
 import { i18n } from './i18n'
 import { nodePorts, cookieMountpoint, cookiePath, uiPort } from './utils'
 import { storeJson } from './fileModels/store.json'
@@ -109,6 +110,8 @@ export const main = sdk.setupMain(async ({ effects }) => {
           MAINNET_ELECTRUM_ADDR: electrum,
           MAINNET_ESPLORA_URL: `http://${esplora}`,
           MAINNET_LIGHTNING_ENABLED: settings?.lightning ? 'true' : 'false',
+          MAINNET_BARK_URL: arkUrl('bark', settings?.bark),
+          MAINNET_ARKADE_URL: arkUrl('arkade', settings?.arkade),
           MCP_ENABLED: settings?.mcp ? 'true' : 'false',
           LOG_REQUESTS: 'failures',
           LOG_CLIENT_ADDR: 'false',

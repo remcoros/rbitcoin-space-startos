@@ -12,8 +12,6 @@ const dict = {
   Explorer: 10,
   'Mainnet block explorer and Esplora-compatible API. No authentication.': 11,
   'Explorer settings': 12,
-  'Configure the Lightning explorer and read-only MCP server.': 13,
-  'Saving restarts the explorer. Lightning connects directly to public peers and uses additional memory.': 14,
   'Lightning explorer': 15,
   'Settings saved': 16,
   'Read-only MCP server': 17,
@@ -41,6 +39,19 @@ const dict = {
   'Esplora API': 39,
   'Explorer storage': 40,
   'Address-history index': 41,
+  'Configure Lightning, Ark explorers and the read-only MCP server.': 13,
+  'Saving restarts the explorer. Lightning connects to public peers and uses additional memory. Ark lookups connect to the selected servers.': 14,
+  'Bark explorer': 42,
+  'Arkade explorer': 43,
+  'Look up mainnet VTXOs on the selected operator. The operator receives your lookup requests.': 44,
+  Disabled: 45,
+  'Public server': 46,
+  'Custom URL': 47,
+  'Server URL': 48,
+  'HTTP or HTTPS host and optional port, without a path, credentials, query or fragment. Requires a compatible Bark gRPC API over HTTP/2.': 49,
+  'HTTP or HTTPS URL of a compatible Arkade public indexer. A base path is allowed; credentials, queries and fragments are not.': 50,
+  'Invalid Bark URL. Use an HTTP or HTTPS host with an optional port and no path, credentials, query or fragment.': 51,
+  'Invalid Arkade URL. Use an HTTP or HTTPS URL without credentials, a query or a fragment.': 52,
 } as const
 
 export type I18nKey = keyof typeof dict
