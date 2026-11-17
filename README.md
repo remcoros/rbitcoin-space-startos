@@ -38,7 +38,7 @@ The node's `main` volume is mounted read-only at `/mnt/rbitcoin`. Package JavaSc
 
 ## File Models
 
-`startos/store.json` is a loose JSON model containing `lightning` and `mcp`, both defaulting to false. The settings action updates it; upstream configuration is passed through the environment on every launch. Unknown JSON fields survive writes. The dependency cookie uses a read-only string file model and is never rewritten.
+`startos/store.json` is a loose JSON model containing `lightning` and `mcp`, both defaulting to false, plus independent `bark` and `arkade` selections. Each Ark selection defaults to `disabled`; `public` uses the documented mainnet endpoint and `custom` stores a validated URL. The settings action updates it; upstream configuration is passed through the environment on every launch. Unknown JSON fields survive writes. The dependency cookie uses a read-only string file model and is never rewritten.
 
 ## Dependencies
 
@@ -52,7 +52,7 @@ The Explorer UI and Esplora-compatible API share HTTP port 8080 with StartOS TLS
 
 The package preserves Host and Origin at the proxy. StartOS replaces client-supplied forwarded headers and inserts `X-Forwarded-For`; the explorer trusts that header only from the bridge gateway returned by `sdk.getOsIp`. Per-client request and WebSocket quotas therefore use the forwarded client address. Visitors behind the same NAT or upstream tunnel may still share an address. Request logging records failures only and omits client addresses; Cloudflare analytics is disabled.
 
-Lightning is outbound-only when enabled, using upstream public clearnet peers. Ark endpoints are unset. Node API calls remain on the server bridge.
+Lightning is outbound-only when enabled, using upstream public clearnet peers. Enabled Ark providers receive outbound lookup requests: Bark uses gRPC over HTTP/2, while Arkade uses its public REST indexer. Public mode uses `https://ark.second.tech` for Bark and `https://arkade.computer` for Arkade. Disabled providers receive empty environment values, which upstream treats as unset. Node API calls remain on the server bridge.
 
 ## Installation and First-Run Flow
 
@@ -63,6 +63,8 @@ No explorer credential is generated or requested. Runtime reads the node's exist
 Changing the Lightning preference restarts only the explorer. It is safe to repeat and preserves the SQLite history and existing Lightning identity. Enabling Lightning increases memory use and starts direct connections to public peers; disabling it retains the files for reuse.
 
 The MCP preference controls the read-only `/mcp` endpoint on the Explorer interface. It defaults to disabled. Saving restarts the explorer; enabled clients use Streamable HTTP without authentication. MCP has no transaction-broadcast tool.
+
+Bark and Arkade each offer **Disabled**, **Public server**, and **Custom URL**, defaulting to Disabled on existing and fresh installations. Saving restarts only the explorer. Custom URLs must expose a compatible mainnet operator API, rather than a wallet API or explorer website. Bark accepts an HTTP(S) host and optional port with no base path; Arkade permits a base path. Neither permits credentials, queries or fragments. Provider requests reveal the queried VTXOs or address scripts and the explorer’s source IP to that operator. Arkade reports provider claims; Bark checks supported VTXO exit paths against the local node.
 
 ## Tasks
 
@@ -80,7 +82,7 @@ Both owned volumes are backed up while the service is stopped. This preserves SQ
 
 ## Limitations and Differences
 
-This package serves mainnet only, using the local rbitcoin service. Remote nodes, test networks, and Ark configuration are not exposed. Esplora uses TCP, so upstream bulk routes restricted to a Unix socket are unavailable and very large address pages retain the node's cap. A pruned node cannot supply all historical blocks for backfill. Initial history loading can take time and shares node resources with other clients.
+This package serves mainnet only, using the local rbitcoin service. Remote Bitcoin nodes and test networks are not exposed. Ark lookups only cover the selected operators; the explorer does not host an Ark operator. Existing health checks do not probe Ark availability; lookup pages report connection and provider failures. Esplora uses TCP, so upstream bulk routes restricted to a Unix socket are unavailable and very large address pages retain the node's cap. A pruned node cannot supply all historical blocks for backfill. Initial history loading can take time and shares node resources with other clients.
 
 ## Quick Reference for AI Consumers
 
@@ -105,6 +107,8 @@ startos_managed_env_vars:
   - MAINNET_RPC_PASSWORD
   - MAINNET_ESPLORA_URL
   - MAINNET_ELECTRUM_ADDR
+  - MAINNET_BARK_URL
+  - MAINNET_ARKADE_URL
   - MAINNET_LIGHTNING_ENABLED
   - MCP_ENABLED
   - LOG_REQUESTS
