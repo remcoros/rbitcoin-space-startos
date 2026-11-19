@@ -13,7 +13,7 @@ export const manifest = setupManifest({
   volumes: ['data', 'startos'],
   images: {
     explorer: {
-      source: { dockerTag: 'ghcr.io/smolcars/rbitcoin-space:0.3.0' },
+      source: { dockerTag: 'ghcr.io/smolcars/rbitcoin-space:0.4.0' },
       arch: ['x86_64', 'aarch64'],
     },
   },
