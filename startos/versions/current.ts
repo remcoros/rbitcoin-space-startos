@@ -1,18 +1,18 @@
-import { VersionInfo } from '@start9labs/start-sdk'
+import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.3.0:1',
+  version: '0.4.0:0',
   releaseNotes: {
     en_US:
-      'Add optional mainnet Bark and Arkade explorers. Choose Disabled, Public server or Custom URL independently for each provider. Both are disabled by default.',
+      'Update to rbitcoin.space 0.4.0 with redesigned mining, Lightning and mempool history pages, plus more detail on replaced transactions. Back up the explorer before updating. The database migration is one-way.',
     es_ES:
-      'Añade exploradores opcionales de Bark y Arkade en mainnet. Elige Desactivado, Servidor público o URL personalizada para cada proveedor. Ambos están desactivados por defecto.',
+      'Actualiza a rbitcoin.space 0.4.0 con páginas renovadas de minería, Lightning e historial de la mempool, y más detalles sobre las transacciones reemplazadas. Haz una copia de seguridad del explorador antes de actualizar. La migración de la base de datos es irreversible.',
     de_DE:
-      'Optionale Bark- und Arkade-Explorer für Mainnet. Für jeden Anbieter separat Deaktiviert, Öffentlicher Server oder Eigene URL wählen. Beide sind standardmäßig deaktiviert.',
+      'Aktualisiert auf rbitcoin.space 0.4.0 mit neu gestalteten Seiten für Mining, Lightning und den Mempool-Verlauf sowie mehr Details zu ersetzten Transaktionen. Sichere den Explorer vor dem Update. Die Datenbankmigration ist unumkehrbar.',
     pl_PL:
-      'Opcjonalne eksploratory Bark i Arkade w mainnet. Wybierz osobno dla każdego dostawcy: Wyłączone, Serwer publiczny lub Własny URL. Oba są domyślnie wyłączone.',
+      'Aktualizacja do rbitcoin.space 0.4.0 obejmuje nowe widoki wydobycia, Lightning i historii mempoola oraz więcej szczegółów o zastąpionych transakcjach. Przed aktualizacją utwórz kopię zapasową eksploratora. Migracja bazy danych jest nieodwracalna.',
     fr_FR:
-      'Ajoute les explorateurs Bark et Arkade optionnels sur mainnet. Choisissez Désactivé, Serveur public ou URL personnalisée pour chaque fournisseur. Les deux sont désactivés par défaut.',
+      'Met à jour vers rbitcoin.space 0.4.0 avec de nouvelles pages pour le minage, Lightning et l’historique du mempool, ainsi que plus de détails sur les transactions remplacées. Sauvegardez l’explorateur avant la mise à jour. La migration de la base de données est irréversible.',
   },
-  migrations: {},
+  migrations: { down: IMPOSSIBLE },
 })

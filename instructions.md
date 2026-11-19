@@ -33,6 +33,9 @@ The selected operator receives your lookup requests and sees your explorer’s o
 
 Explorer backups preserve its observed history, preferences, and any Lightning identity and graph. Keep the rbitcoin service and its credentials available separately.
 
+Back up the explorer before updating to 0.4.0. To return to an earlier version,
+restore a backup from before the update using the matching package version.
+
 ## Missing data or connection errors
 
 Check rbitcoin's API health and synchronization first. Complete any required configuration prompts; they reappear if a needed API or the address-history index is disabled. Confirm that RPC credentials exist. If you replace the node's credentials, the explorer picks up its updated cookie automatically.
