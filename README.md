@@ -78,9 +78,9 @@ Storage reports failures for an unopenable database, failed writes, a chain mism
 
 ## Backups and Restore
 
-Before upgrading to 0.4.0, back up the explorer. The application applies SQLite
-migration 0021 on startup. Returning to 0.3.0 requires the earlier package and a
-backup from before the migration.
+The application applies SQLite migrations on startup. An older application cannot
+open a database migrated by a newer version; rollback requires a backup from before
+the migration and the matching earlier package.
 
 Both owned volumes are backed up while the service is stopped. This preserves SQLite, observed history, Lightning identity and graph, and preferences. The node mount is excluded. Restoring requires the separate rbitcoin service; the restored explorer reads its current cookie and addresses instead of restoring old credentials. Removing the data volume loses observations that a later chain backfill cannot reconstruct, such as old mempool replacements.
 
