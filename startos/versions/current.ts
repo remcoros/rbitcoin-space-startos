@@ -1,18 +1,18 @@
 import { IMPOSSIBLE, VersionInfo } from '@start9labs/start-sdk'
 
 export const current = VersionInfo.of({
-  version: '0.4.0:0',
+  version: '0.5.0:0',
   releaseNotes: {
     en_US:
-      'Update to rbitcoin.space 0.4.0 with redesigned mining, Lightning and mempool history pages, plus more detail on replaced transactions. Back up the explorer before updating. The database migration is one-way.',
+      'Adds historical address views, transaction privacy checks, fee tracking, timestamp verification, and Lightning channel close records. Back up the explorer before updating: the database migration is one-way. [Full release notes](https://github.com/smolcars/rbitcoin-space/releases/tag/v0.5.0)',
     es_ES:
-      'Actualiza a rbitcoin.space 0.4.0 con páginas renovadas de minería, Lightning e historial de la mempool, y más detalles sobre las transacciones reemplazadas. Haz una copia de seguridad del explorador antes de actualizar. La migración de la base de datos es irreversible.',
+      'Añade vistas históricas de direcciones, comprobaciones de privacidad de transacciones, seguimiento de comisiones, verificación de marcas de tiempo y registros de cierre de canales Lightning. Haz una copia de seguridad del explorador antes de actualizar: la migración de la base de datos es irreversible. [Notas completas](https://github.com/smolcars/rbitcoin-space/releases/tag/v0.5.0)',
     de_DE:
-      'Aktualisiert auf rbitcoin.space 0.4.0 mit neu gestalteten Seiten für Mining, Lightning und den Mempool-Verlauf sowie mehr Details zu ersetzten Transaktionen. Sichere den Explorer vor dem Update. Die Datenbankmigration ist unumkehrbar.',
+      'Ergänzt historische Adressansichten, Datenschutzprüfungen für Transaktionen, Gebührenverlauf, Zeitstempelprüfung und Lightning-Kanalschließungen. Sichere den Explorer vor dem Update: Die Datenbankmigration ist unumkehrbar. [Vollständige Versionshinweise](https://github.com/smolcars/rbitcoin-space/releases/tag/v0.5.0)',
     pl_PL:
-      'Aktualizacja do rbitcoin.space 0.4.0 obejmuje nowe widoki wydobycia, Lightning i historii mempoola oraz więcej szczegółów o zastąpionych transakcjach. Przed aktualizacją utwórz kopię zapasową eksploratora. Migracja bazy danych jest nieodwracalna.',
+      'Dodaje historyczne widoki adresów, kontrole prywatności transakcji, historię opłat, weryfikację znaczników czasu i historię zamknięć kanałów Lightning. Przed aktualizacją utwórz kopię zapasową eksploratora: migracja bazy danych jest nieodwracalna. [Pełne informacje o wydaniu](https://github.com/smolcars/rbitcoin-space/releases/tag/v0.5.0)',
     fr_FR:
-      'Met à jour vers rbitcoin.space 0.4.0 avec de nouvelles pages pour le minage, Lightning et l’historique du mempool, ainsi que plus de détails sur les transactions remplacées. Sauvegardez l’explorateur avant la mise à jour. La migration de la base de données est irréversible.',
+      'Ajoute des vues historiques des adresses, des contrôles de confidentialité des transactions, le suivi des frais, la vérification des horodatages et l’historique des fermetures de canaux Lightning. Sauvegardez l’explorateur avant la mise à jour : la migration de la base de données est irréversible. [Notes de version complètes](https://github.com/smolcars/rbitcoin-space/releases/tag/v0.5.0)',
   },
   migrations: { down: IMPOSSIBLE },
 })

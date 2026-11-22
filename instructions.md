@@ -33,8 +33,8 @@ The selected operator receives your lookup requests and sees your explorer’s o
 
 Explorer backups preserve its observed history, preferences, and any Lightning identity and graph. Keep the rbitcoin service and its credentials available separately.
 
-Back up the explorer before updating to 0.4.0. To return to an earlier version,
-restore a backup from before the update using the matching package version.
+To return to an earlier version after a database migration, restore a backup from
+before the update using the matching package version.
 
 ## Missing data or connection errors
 
